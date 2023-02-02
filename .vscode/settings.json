@@ -1,0 +1,24 @@
+{
+    "terminal.integrated.cwd": "/workspaces/ros-devcontainer-tknika/ws",
+    "C_Cpp.intelliSenseCacheSize": 0,
+    "C_Cpp.intelliSenseEngine": "Tag Parser",
+    "python.pythonPath": "/usr/bin/python",
+    "python.showStartPage": false,
+    "VsCodeTaskButtons.tasks": [
+        {
+            "label": "Roscore",
+            "task": "Roscore",
+            "tooltip": "Launch \"Roscore\" in the background"
+        },
+        {
+            "label": "Make Workspace",
+            "task": "Make Workspace",
+            "tooltip": "Configure the workspace"
+        },
+        {
+            "label": "Create Package",
+            "task": "Create Package",
+            "tooltip": "Create new package"
+        },
+    ],
+}

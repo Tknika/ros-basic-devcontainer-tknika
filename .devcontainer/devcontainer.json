@@ -1,0 +1,24 @@
+{
+  "name": "ROS development environment by Tknika",
+  "dockerFile": "Dockerfile",
+  "containerEnv": {
+    "DISPLAY": "${localEnv:DISPLAY}"
+  },
+  "mounts": [
+    "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
+    "source=ws,target=/tmp/ws"
+  ],
+  "runArgs": [
+    "--privileged",
+    "--network=host"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-vscode.cpptools",
+        "spencerwmiles.vscode-task-buttons",
+      ]
+    }
+  }
+}
