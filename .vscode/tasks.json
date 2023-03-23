@@ -5,20 +5,9 @@
             "label": "Make Workspace",
             "type": "shell",
             "command": "bash -i -c 'cd ws && catkin_make'",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "problemMatcher": {
-                "fileLocation": "absolute",
-                "pattern": {
-                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
-                    "file": 1,
-                    "line": 2,
-                    "column": 3,
-                    "severity": 4,
-                    "message": 5
-                }
+            "presentation": {
+                "reveal": "silent",
+                "panel": "dedicated"
             }
         },
         {
@@ -36,7 +25,7 @@
             "command": "bash -i -c roscore",
             "presentation": {
                 "reveal": "silent",
-                "panel": "new"
+                "panel": "dedicated"
             }
         },
     ],
