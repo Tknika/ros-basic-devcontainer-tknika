@@ -1,6 +1,7 @@
 {
   "name": "ROS development environment by Tknika",
   "dockerFile": "Dockerfile",
+  "remoteUser": "ros",
   "containerEnv": {
     "DISPLAY": "${localEnv:DISPLAY}"
   },
