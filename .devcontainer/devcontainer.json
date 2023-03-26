@@ -15,10 +15,11 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-python.python",
-        "ms-vscode.cpptools",
-        "spencerwmiles.vscode-task-buttons",
-      ]
+		"ms-python.python",
+		"ms-vscode.cpptools",
+		"spencerwmiles.vscode-task-buttons",
+		"augustocdias.tasks-shell-input"
+	]
     }
   }
 }
