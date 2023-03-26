@@ -22,6 +22,12 @@
         {
             "label": "Roscore",
             "type": "shell",
+            "options": {
+                "env": {
+                    "ROS_IP": "${input:rosMasterIp}",
+                    "ROS_MASTER_URI": "http://${input:rosMasterIp}:11311",
+                }
+            },
             "command": "bash -i -c roscore",
             "presentation": {
                 "reveal": "silent",
@@ -40,6 +46,16 @@
             "type": "promptString",
             "description": "Please enter name of depending packages",
             "default": "roscpp std_msgs"
+        },
+        {
+            "id": "rosMasterIp",
+            "type": "command",
+            "command": "shellCommand.execute",
+            "args": {
+                "command": "hostname -I | tr ' ' '\n'",
+                "useSingleResult": true,
+                "description": "Select the IP address of the master",
+            }
         }
     ]
 }
