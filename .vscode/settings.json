@@ -19,5 +19,10 @@
             "task": "Create Package",
             "tooltip": "Create new package"
         },
+        {
+            "label": "ROS Echo",
+            "task": "ROS Echo",
+            "tooltip": "Echo all messages for a given ROS topic"
+        }
     ],
 }

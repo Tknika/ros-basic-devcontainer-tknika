@@ -24,8 +24,8 @@
             "type": "shell",
             "options": {
                 "env": {
-                    "ROS_IP": "${input:rosMasterIp}",
-                    "ROS_MASTER_URI": "http://${input:rosMasterIp}:11311",
+                    "ROS_IP": "${input:rosExposedIp}",
+                    "ROS_MASTER_URI": "http://${input:rosExposedIp}:11311",
                 }
             },
             "command": "bash -i -c roscore",
@@ -34,6 +34,17 @@
                 "panel": "dedicated"
             }
         },
+        {
+            "label": "ROS Echo",
+            "type": "shell",
+            "command": "export ROS_MASTER_URI=http://${input:rosMasterConnectIp}:11311 && export ROS_IP=${input:rosExposedIp} && echo Connecting to ${ROS_MASTER_URI} from ${ROS_IP} && rostopic echo ${input:rosTopicForEcho}",
+            "presentation": {
+                "reveal": "always",
+                "focus": true,
+                "panel": "new",
+                "showReuseMessage": false,
+            }
+        }
     ],
     "inputs": [
         {
@@ -48,13 +59,29 @@
             "default": "roscpp std_msgs"
         },
         {
-            "id": "rosMasterIp",
+            "id": "rosExposedIp",
             "type": "command",
             "command": "shellCommand.execute",
             "args": {
                 "command": "hostname -I | tr ' ' '\n'",
+                "description": "Please select your IP address",
                 "useSingleResult": true,
-                "description": "Select the IP address of the master",
+            }
+        },
+        {
+            "id": "rosMasterConnectIp",
+            "type": "promptString",
+            "description": "Please enter the IP address of the ROS Master",
+            "default": "localhost"
+        },
+        {
+            "id": "rosTopicForEcho",
+            "type": "command",
+            "command": "shellCommand.execute",
+            "args": {
+                "command": "rostopic list",
+                "description": "Please choose the ROS topic",
+                "useSingleResult": true,
             }
         }
     ]
