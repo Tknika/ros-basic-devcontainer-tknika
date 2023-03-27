@@ -23,10 +23,10 @@ jobs:
       - name: Template variable replacement
         run: |
           # Prepare variables
-          ORIGINAL_REPO_NAME="tknika/ros-basic-devcontainer-tknika"
-          NEW_REPO_NAME=${{github.repository}}
+          ORIGINAL_REPO="tknika/ros-basic-devcontainer-tknika"
+          NEW_REPO=${{github.repository}}
 
-          sed -i "s/$ORIGINAL_REPO_NAME/$NEW_REPO_NAME/g" README.md
+          sed -i "s@${ORIGINAL_REPO}@${NEW_REPO}@g" README.md
    
       - name: Commit files
         run: |
