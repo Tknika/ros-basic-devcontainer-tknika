@@ -23,7 +23,7 @@ jobs:
       - name: Template variable replacement
         run: |
           # Prepare variables
-          ORIGINAL_REPO="tknika/ros-basic-devcontainer-tknika"
+          ORIGINAL_REPO="Tknika/ros-basic-devcontainer-tknika"
           NEW_REPO=${{github.repository}}
 
           sed -i "s@${ORIGINAL_REPO}@${NEW_REPO}@g" README.md
@@ -37,7 +37,7 @@ jobs:
 
       - name: Push changes
         uses: ad-m/github-push-action@master
-        if: github.event.repository.name != 'tknika/ros-basic-devcontainer-tknika'
+        if: github.event.repository.name != 'Tknika/ros-basic-devcontainer-tknika'
         with:
           branch: master
           github_token: ${{ secrets.GITHUB_TOKEN }}  
