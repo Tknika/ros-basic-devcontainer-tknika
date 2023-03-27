@@ -1,0 +1,43 @@
+# GitHub Actions Workflow responsible for defining the appropriate variables for the repositories generated from the template.
+
+name: Repository setup
+
+on:
+  # run when branch created (repo generated from template)
+  create:
+
+jobs:
+  first-time-setup:
+    name: First time setup
+    runs-on: ubuntu-latest
+    if: github.event.repository.name != 'ros-basic-devcontainer-tknika'
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Remove workflow files
+        run: rm -f .github/worksflows/template-definition.yml
+
+      - name: Template variable replacement
+        run: |
+          # Prepare variables
+          ORIGINAL_REPO_NAME="tknika/ros-basic-devcontainer-tknika"
+          NEW_REPO_NAME=${{github.repository}}
+
+          sed -i "s/$ORIGINAL_REPO_NAME/$NEW_REPO_NAME/g" README.md
+   
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "New repository setup"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          branch: master
+          github_token: ${{ secrets.GITHUB_TOKEN }}  
