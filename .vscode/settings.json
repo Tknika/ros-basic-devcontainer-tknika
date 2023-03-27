@@ -1,5 +1,4 @@
 {
-    "terminal.integrated.cwd": "/workspaces/ros-basic-devcontainer-tknika/ws",
     "C_Cpp.intelliSenseCacheSize": 0,
     "C_Cpp.intelliSenseEngine": "Tag Parser",
     "python.defaultInterpreterPath": "/usr/bin/python3",
