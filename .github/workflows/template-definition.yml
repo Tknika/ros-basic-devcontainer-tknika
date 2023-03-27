@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Remove workflow files
-        run: rm -f .github/worksflows/template-definition.yml
+        run: rm -f .github/workflows/template-definition.yml
 
       - name: Template variable replacement
         run: |
@@ -28,10 +28,13 @@ jobs:
 
           sed -i "s@${ORIGINAL_REPO}@${NEW_REPO}@g" README.md
    
-      - name: Commit files
+      - name: Set git config
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+
+      - name: Commit changes
+        run: |
           git add .
           git commit -m "New repository setup"
 
