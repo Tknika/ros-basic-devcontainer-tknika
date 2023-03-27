@@ -4,7 +4,7 @@
         {
             "label": "Make Workspace",
             "type": "shell",
-            "command": "bash -i -c 'cd ws && catkin_make'",
+            "command": "bash -i -c 'catkin_make'",
             "presentation": {
                 "reveal": "silent",
                 "panel": "dedicated"
@@ -13,7 +13,7 @@
         {
             "label": "Create Package",
             "type": "shell",
-            "command": "bash -i -c 'cd ws/src && catkin_create_pkg ${input:packageName} ${input:dependingPackages}'",
+            "command": "bash -i -c 'cd src && catkin_create_pkg ${input:packageName} ${input:dependingPackages}'",
             "presentation": {
                 "reveal": "silent",
                 "panel": "shared"
