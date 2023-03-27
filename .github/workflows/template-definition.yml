@@ -10,7 +10,6 @@ jobs:
   first-time-setup:
     name: First time setup
     runs-on: ubuntu-latest
-    if: github.event.repository.name != 'ros-basic-devcontainer-tknika'
     permissions:
       contents: write
     
@@ -38,6 +37,7 @@ jobs:
 
       - name: Push changes
         uses: ad-m/github-push-action@master
+        if: github.event.repository.name != 'tknika/ros-basic-devcontainer-tknika'
         with:
           branch: master
           github_token: ${{ secrets.GITHUB_TOKEN }}  
